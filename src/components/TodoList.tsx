@@ -2,17 +2,28 @@ import { useState } from "react";
 import Todo from "./Todo";
 import AddTodo from "./AddTodo";
 
+export interface TodoType {
+  id: number;
+  content: string;
+  status: boolean;
+}
+
 export default function TodoList() {
-  const [todos, setTodos] = useState([
+  const [todos, setTodos] = useState<TodoType[]>([
     { id: 0, content: "잠자기", status: true },
     { id: 1, content: "달리기", status: true },
   ]);
-  const handleAdd = (todo) => {
+
+  const handleAdd = (todo: TodoType) => {
     setTodos([...todos, todo]);
   };
-  const handleDelete = (todo) => {
-    setTodos((prev) => prev.filter((t) => t.id !== todo.id));
+
+  const handleDelete = (id: number) => {
+    setTodos((prev) => prev.filter((t) => t.id !== id));
   };
+
+  // const handleStatus = () => {};
+
   return (
     <section>
       <ul>

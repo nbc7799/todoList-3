@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "ESNext", // 최신 JS 지원 (ES2016 대신)
+    "module": "ESNext", // commonjs → ESNext (웹 프로젝트니까)
+    "lib": ["DOM", "ESNext"], // 브라우저 + 최신 JS 라이브러리 사용
+    "jsx": "react-jsx", // 리액트 전용 JSX 변환 (React 17+용)
+    "esModuleInterop": true /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables 'allowSyntheticDefaultImports' for type compatibility. */,
+    "forceConsistentCasingInFileNames": true /* Ensure that casing is correct in imports. */,
+    "strict": true /* Enable all strict type-checking options. */,
+    "skipLibCheck": true /* Skip type checking all .d.ts files. */,
+    "moduleResolution": "node" /* 모듈 해석을 node로 해야 에러잡음*/
+  },
+  "include": ["src"]
+}

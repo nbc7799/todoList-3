@@ -1,12 +1,17 @@
 import { useState } from "react";
 
-export default function AddTodo({ onAdd }) {
+interface AddTodoProps {
+  onAdd: (todo: { id: number; content: string; status: string }) => void;
+}
+
+export default function AddTodo({ onAdd }: AddTodoProps) {
   const [text, setText] = useState("");
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setText(e.target.value);
   };
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!text.trim()) return;
     onAdd({ id: Date.now(), content: text, status: "active" });
     setText("");
   };
